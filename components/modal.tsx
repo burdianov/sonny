@@ -58,12 +58,15 @@ const Modal = () => {
 
   const addImageToPost = (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
-    if (e?.target?.files[0]!) {
-      reader.readAsDataURL(e.target!.files[0]!);
+
+    if (!e.target.files) return;
+
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]!);
     }
 
     reader.onload = (readerEvent) => {
-      setSelectedFile(readerEvent!.target!.result);
+      setSelectedFile(readerEvent.target.result);
     };
   };
 
