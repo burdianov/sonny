@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Feed from '../components/feed';
 
+import Feed from '../components/feed';
 import Header from '../components/header';
+import Modal from '../components/modal';
 
 const Home: NextPage = () => {
   return (
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
 
       <Feed />
 
-      {/* Modal */}
+      <Modal />
     </div>
   );
 };
