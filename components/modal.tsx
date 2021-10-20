@@ -117,7 +117,7 @@ const Modal = () => {
                 {selectedFile ? (
                   <img
                     className="w-full object-contain cursor-pointer"
-                    onClick={() => setSelectedFile(null)}
+                    onClick={() => setSelectedFile('')}
                     src={selectedFile}
                     alt="selected file"
                   />
