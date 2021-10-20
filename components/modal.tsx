@@ -20,7 +20,7 @@ const Modal = () => {
   const { data: session } = useSession();
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useRecoilState(modalState);
-  const [selectedFile, setSelectedFile] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<string | undefined>();
   const filePickerRef = useRef<HTMLInputElement>(null);
   const captionRef = useRef<HTMLInputElement>(null);
 
@@ -66,13 +66,13 @@ const Modal = () => {
     }
 
     reader.onload = (readerEvent) => {
-      setSelectedFile(readerEvent.target.result);
+      setSelectedFile(readerEvent.target?.result?.toString());
     };
   };
 
   const handleDialogClose = () => {
     setOpen(false);
-    setSelectedFile(null);
+    setSelectedFile('');
   };
 
   return (
